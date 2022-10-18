@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <fieldset style="background-color: rgb(185, 153, 206);">
+            <legend style="border-style: groove; background-color: white;">Datos personales</legend>
+            <label for="prefixList" title="Prefijo para dirigirse al usuario">Prefijo:</label>
+            <select name="prefixList" id="prefixList">
+                <option value="Sr">Sr.</option>
+                <option value="Sra">Sra.</option>
+                <option value="Srta">Srta.</option>
+                <option value="Dr">Dr.</option>
+                <option value="Dra">Dra.</option>
+            </select><br>
+            <label for="name" title="Nombre del usuario">Nombre:</label>
+            <input type="text" id="name" required><br>
+            <label for="surname" title="Apellido del usuario">Apellidos:</label>
+            <input type="text" id="surname" required><br>
+            <label for="email" title="Email del usuario">Email:</label>
+            <input type="email" id="email" required><br>
+            <label for="phoneNumber" title="Teléfono del usuario">Teléfono:</label>
+            <input type="tel" id="phoneNumber" maxlength="9"><br>
+            <label for="dateOfBirth" tile="Fecha de nacimiento del usuario">Fecha de Nacimiento:</label>
+            <input type="date" id="dateOfBirth" required><br>
+            <label for="age" title="Edad del usuario">Edad:</label>
+            <input type="number" id="age" max="130" min="16">
+        </fieldset>
+
+        <fieldset style="background-color: rgb(185, 153, 206);">
+            <legend style="border-style: groove; background-color: white;">Datos adicionales</legend>
+
+
+
+        </fieldset>
+
+        <fieldset style="background-color: rgb(185, 153, 206);">
+            <legend style="border-style: groove; background-color: white;">Contraseña</legend>
+
+
+
+        </fieldset>
+    </form>
+    
+</body>
+</html>
