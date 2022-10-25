@@ -4,15 +4,99 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>index.html</title>
+    <style>
+
+        .form-all {
+            margin: 0;
+        }
+
+        h1 {
+            display: inline;
+        }
+
+        fieldset {
+            margin-top: 50px;
+            background-color: white;
+            border-radius: 10px;
+            width: 20%;
+        }
+
+        legend {
+            border-style: groove;
+            background-color: white;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin: 1px;
+            padding: 1px;
+        }
+
+        input:optional {
+            border-style: solid;
+            border-color: dimgray;
+            border-width: 3px;
+
+        }
+
+        input:required {
+            border-color: black;
+            border-width: 3px;
+        }
+
+        input:focus-visible {
+            outline: 2px solid blue;
+            border-radius: 3px;
+        }
+
+        #age:out-of-range {
+            background-color: #ff4c4c;
+        }
+
+        #age:in-range {
+            background-color: #4fef4f;
+        }
+
+        #resetButton {
+            border-style: inset;
+        }
+
+        #sendButton {
+            border-style: inset;
+        }
+
+        input + span {
+            position: relative;
+        }
+
+        input + span::before {
+            position: absolute;
+            right: -20px;
+            top: 5px;
+        }
+
+        input:invalid + span::before {
+            content: "✘";
+            color: red;
+        }
+
+        input:valid + span::before {
+            content: "✓";
+            color: green;
+        }
+
+    </style>
 </head>
 <body>
 
-    <form action="">
-        <fieldset style="background-color: rgb(185, 153, 206);">
-            <legend style="border-style: groove; background-color: white;">Datos personales</legend>
+    <form class="form-all" id="form" action="">
+        <h1>Formulario de registro</h1>
+        <fieldset>
+            <legend>Datos personales</legend>
             <label for="prefixList" title="Prefijo para dirigirse al usuario">Prefijo:</label>
-            <select name="prefixList" id="prefixList">
+            <select name="prefix" id="prefixList" autofocus>
                 <option value="Sr">Sr.</option>
                 <option value="Sra">Sra.</option>
                 <option value="Srta">Srta.</option>
@@ -20,32 +104,55 @@
                 <option value="Dra">Dra.</option>
             </select><br>
             <label for="name" title="Nombre del usuario">Nombre:</label>
-            <input type="text" id="name" required><br>
+            <input type="text" id="name" name="userName" required><br>
             <label for="surname" title="Apellido del usuario">Apellidos:</label>
-            <input type="text" id="surname" required><br>
+            <input type="text" id="surname"  name="userSurname" required><br>
             <label for="email" title="Email del usuario">Email:</label>
-            <input type="email" id="email" required><br>
+            <input type="email" id="email" name="userEmail" required><br>
             <label for="phoneNumber" title="Teléfono del usuario">Teléfono:</label>
-            <input type="tel" id="phoneNumber" maxlength="9"><br>
+            <input type="tel" id="phoneNumber"  name="userPhone" maxlength="9"><span></span><br>
             <label for="dateOfBirth" tile="Fecha de nacimiento del usuario">Fecha de Nacimiento:</label>
-            <input type="date" id="dateOfBirth" required><br>
+            <input type="date" id="dateOfBirth"  name="userDateOfBirth" required><br>
             <label for="age" title="Edad del usuario">Edad:</label>
-            <input type="number" id="age" max="130" min="16">
+            <input type="number" id="age"  name="userAge" max="130" min="16"><span></span>
         </fieldset>
 
-        <fieldset style="background-color: rgb(185, 153, 206);">
-            <legend style="border-style: groove; background-color: white;">Datos adicionales</legend>
-
+        <fieldset>
+            <legend>Datos adicionales</legend>
+            <label for="favouriteColor" title="Color favorito del usuario">Color favorito:</label>
+            <input type="color" id="favouriteColor" name="userFavouriteColor"><br>
+            <label for="startOfStudies" title="Inicio de los estudios del usuario">Inicio de los estudios:</label>
+            <input type="month" id="startOfStudies"  name="userStartOfStudies" max="2022-09"><br>
+            <label for="webPage" title="Página web del usuario">Web:</label>
+            <input type="url" id="webPage"  name="userWebPage" pattern="https?:\/\/([a-zA-Z0-9]([^ @&%$\\\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.])+[a-zA-Z0-9]{2,4}([\.][a-zA-Z]{2})?"><span></span><br>
+            <label for="actualGrade" title="Curso actual del usuario">Curso actual:</label>
+            <select id="actualGrade" name="userActualGrade">
+                <option value="2021/2022">2021/2022</option>
+                <option value="2022/2023">2022/2023</option>
+            </select><br>
+            <label id="satisfactionLevel" title="Nivel de satisfacción del uruario">Nivel de satisfacción:</label>
+            <input type="range"  name="userSatisfactionLevel" min="0" max="10" step="0.5" list="tickmarks"><br>
+            <datalist id="tickmarks">
+                <option value="0"></option>
+                <option value="2.5"></option>
+                <option value="5"></option>
+                <option value="7.5"></option>
+                <option value="10"></option>
+            </datalist>
 
 
         </fieldset>
 
-        <fieldset style="background-color: rgb(185, 153, 206);">
-            <legend style="border-style: groove; background-color: white;">Contraseña</legend>
-
-
-
+        <fieldset>
+            <legend>Contraseña</legend>
+            <label for="password" title="Contraseña del usuario">Contraseña:</label>
+            <input type="password" id="password"  name="userPassword" required><br>
+            <label for="passwordCheck" title="¿Comprendo la importancia de establecer contraseñas seguras?">Comprendo la importancia de establecer contraseñas seguras.</label>
+            <input type="checkbox" id="passwordCheck" name="userPasswordCheck" required>
         </fieldset>
+
+        <input type="button" value="Enviar" title="Enviar formulario" id="sendButton">
+        <input type="reset" value="Reiniciar" title="Reiniciar formulario" id="resetButton">
     </form>
     
 </body>
